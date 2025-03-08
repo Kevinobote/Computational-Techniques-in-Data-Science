@@ -50,6 +50,24 @@ Portfolio optimization involves allocating investments across different assets t
 
 The optimization balances the trade-off between expected return and risk across multiple possible future scenarios of asset returns.
 
+## Assignment 1: Implementation and Analysis
+
+In Assignment 1, we implemented and analyzed several stochastic programming concepts using Python:
+
+### Implementation Highlights
+- Built a stochastic programming framework using CVXPY and NumPy
+- Solved the Newsvendor Problem with various demand distributions
+- Performed Portfolio Optimization under uncertainty
+- Visualized results using Matplotlib
+- Analyzed sensitivity of solutions to changes in uncertainty parameters
+- Compared deterministic solutions to stochastic solutions
+
+### Insights Gained
+- Demonstrated how accounting for uncertainty leads to more robust decisions
+- Quantified the value of stochastic solutions versus deterministic approximations
+- Explored the computational challenges in solving multi-stage stochastic programs
+- Examined trade-offs between solution quality and computational complexity
+
 ## Mathematical Formulation
 A standard form of a stochastic optimization problem is:
 
