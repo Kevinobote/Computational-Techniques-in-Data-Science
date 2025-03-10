@@ -88,12 +88,13 @@ A generic stochastic programming problem can be written as:
 
 Where:
 
-- \( x \) is the decision variable
-- \( \xi \) represents random parameters (e.g., demand, returns)
-- \( \mathbb{E}[\cdot] \) denotes expectation over all scenarios
-- \( f(x, \xi) \) is the cost function
-- \( g(x) \) are deterministic constraints
-- \( h(x, \xi) \) are random constraints dependent on uncertainty
+- \( x \) is the decision variable  
+- \( \xi \) represents random parameters (e.g., demand, returns)  
+- \( \mathbb{E}[\cdot] \) denotes the expectation over all scenarios  
+- \( f(x, \xi) \) is the cost function  
+- \( g(x) \) are deterministic constraints  
+- \( h(x, \xi) \) are random constraints dependent on uncertainty  
+
 
 ## Solution Approaches
 
