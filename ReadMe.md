@@ -148,3 +148,100 @@ Where \( (dx_t, dy_t) \) is a random step vector. Over time, the particle diffus
 
 Random walks lay the foundation for advanced stochastic processes like Markov chains, which model systems where the next state depends only on the current state.
 
+# Stochastic Programming and Random Walks
+
+## Overview
+This project explores foundational concepts in stochastic programming and random walks, with implementations using Python libraries like CVXPY, NumPy, and Matplotlib.
+
+## Week 1: Stochastic Programming
+
+### What is Stochastic Programming?
+Stochastic programming is a framework for modeling optimization problems that involve uncertainty. Unlike deterministic optimization, where all parameters are known, stochastic programming accounts for randomness using probability distributions.
+
+### Mathematical Formulation
+A typical stochastic optimization problem is:
+
+\[
+\min \mathbb{E}[f(x, \xi)] \\
+\text{subject to:} \\
+    g(x) \leq 0 \\
+    h(x, \xi) \leq 0
+\]
+
+Where:
+
+- \( x \) is the decision variable
+- \( \xi \) represents random parameters (e.g., demand, returns)
+- \( \mathbb{E}[\cdot] \) denotes the expectation over all scenarios
+- \( f(x, \xi) \) is the cost function
+- \( g(x) \) are deterministic constraints
+- \( h(x, \xi) \) are random constraints dependent on uncertainty
+
+### Example Applications
+- **Newsvendor Problem:** Balancing overstock and understock costs given uncertain demand
+- **Portfolio Optimization:** Allocating assets to maximize expected return while controlling risk
+
+### Implementation Details
+- Built a stochastic framework with CVXPY
+- Solved problems with Monte Carlo sampling
+- Visualized results with Matplotlib
+
+### Key Libraries
+```
+cvxpy==1.3.1
+numpy==1.24.3
+scipy==1.10.1
+matplotlib==3.7.1
+pandas==2.0.2
+```
+
+## Week 2: Random Walks
+
+### What is a Random Walk?
+A random walk is a sequence of random steps, useful for modeling various natural and social processes.
+
+### 1D Random Walk
+\[
+X_t = X_{t-1} + S_t
+\]
+Where:
+- \( X_t \) is the position at time \( t \)
+- \( S_t \) is the step, typically +1 or -1 with equal probability
+
+### 2D Random Walk
+\[
+X_t = X_{t-1} + (dx_t, dy_t)
+\]
+Where:
+- \( (dx_t, dy_t) \) is a random step vector
+
+### Applications
+- **Physics:** Brownian motion
+- **Finance:** Stock price modeling
+- **Biology:** Animal movement patterns
+
+---
+
+## How to Run the Code
+
+1. Install dependencies:
+```
+pip install -r requirements.txt
+```
+
+2. Run the scripts:
+```
+python stochastic_programming.py
+python random_walks.py
+```
+
+3. Visualize results:
+Results will be displayed as plots, showing optimization outcomes or random walk trajectories.
+
+## Conclusion
+This project highlights the power of stochastic models for decision-making under uncertainty and the versatility of random walks in modeling dynamic processes.
+
+Would you like me to refine any section, add more explanations, or break down the code structure? Let me know! 🚀
+
+
+
