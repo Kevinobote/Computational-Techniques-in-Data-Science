@@ -147,3 +147,27 @@ Where \( (dx_t, dy_t) \) is a random step vector. Over time, the particle diffus
 - **Computer Science:** Graph algorithms, Monte Carlo methods
 
 Random walks lay the foundation for advanced stochastic processes like Markov chains, which model systems where the next state depends only on the current state.
+
+# Week 3: Linear Programming
+
+## Introduction
+Linear programming (LP) is a mathematical method for determining the best outcome in a given mathematical model whose requirements are represented by linear relationships. It is widely used in various fields such as economics, business, engineering, and military applications.
+
+## Key Concepts
+
+### Objective Function
+The objective function is the function that needs to be optimized (maximized or minimized). In LP, it is a linear function of the decision variables.
+
+### Constraints
+Constraints are the restrictions or limitations on the decision variables. They are also linear functions in LP.
+
+### Decision Variables
+These are the variables that decision-makers will decide the values of in order to achieve the best outcome.
+
+## Example Applications
+
+### 1. Diet Optimization
+A person needs at least 2000 calories and 50g protein daily. The goal is to minimize the cost of food while meeting these nutritional requirements.
+
+- **Food A**: 500 calories, 30g protein, $3/unit.
+- **Food B**: 700 calories, 20g protein, $5/unit.
