@@ -1,173 +1,76 @@
-# Week 1: Stochastic Programming
+# Computational Techniques in Data Science
 
-## Introduction
-Stochastic programming is a mathematical framework for making decisions under uncertainty. Unlike deterministic optimization, where all parameters are fixed, stochastic programming incorporates randomness by modeling uncertain elements as random variables with known probability distributions. The goal is to find an optimal decision that performs well across various possible future scenarios.
+## Week 1: Stochastic Programming
+Stochastic programming is an optimization approach for decision-making under uncertainty. It models randomness using probability distributions and optimizes decisions across multiple future scenarios. Key concepts include:
 
-## Key Concepts
+- **Decision Variables:** Represent quantities to optimize (e.g., asset allocation in portfolio optimization, inventory levels in supply chains).
+- **Scenarios & Probabilities:** Capture uncertainties like stock price fluctuations or varying demand levels.
+- **Cost Functions:** Often involve minimizing expected costs or maximizing expected returns while considering risk.
+- **Constraints:** Ensure feasibility, such as budget limitations or demand fulfillment.
 
-### Decision Variables
-These represent the quantities we want to optimize. For example:
+### Applications:
+1. **Newsvendor Problem:** Determines optimal stocking levels under uncertain demand.
+2. **Portfolio Optimization:** Allocates assets to maximize returns while controlling risk.
 
-- **In portfolio optimization:** The proportion of funds to invest in different assets
-- **In supply chain management:** The number of units to produce or store
+### Solution Approaches:
+- **Sample Average Approximation (SAA)**: Uses Monte Carlo sampling.
+- **Stochastic Gradient Descent**: Suitable for large problems.
+- **L-shaped Method (Benders Decomposition)**: Solves two-stage problems efficiently.
+- **Progressive Hedging**: Handles multi-stage problems.
 
-The objective is to determine the best values for these variables.
-
-### Scenarios and Probabilities
-Uncertainty is modeled using scenarios, each representing a possible future state of the world with an associated probability. For example:
-
-- **Stock prices:** Might rise, fall, or stay constant, with specific probabilities
-- **Demand levels:** Could be low, medium, or high, each with a likelihood
-
-The decision-maker aims to optimize performance across these scenarios.
-
-### Cost Functions
-The objective function in stochastic programming often involves minimizing expected costs or maximizing expected returns. It may include:
-
-- **Expected value calculations:** Averaging outcomes weighted by scenario probabilities
-- **Risk measures:** Penalizing undesirable outcomes, like high losses
-- **Penalty terms:** Adding extra costs for constraint violations
-
-Example operators:
-
-- `cp.pos(x)`: Computes `max(x, 0)` to model non-negative penalties
-- `cp.multiply`: Multiplies vectors element-wise, useful for applying probabilities
-- `cp.sum`: Computes the total across scenarios or decision variables
-
-### Constraints
-Constraints define the feasible region for decision variables. They can be:
-
-- **First-stage constraints:** Must hold before uncertainty is revealed (e.g., budget limits)
-- **Second-stage constraints:** Must hold after uncertainty is realized (e.g., demand fulfillment)
-- **Non-negativity constraints:** Ensure variables represent realistic values (e.g., no negative inventory)
-
-## Example Applications
-
-### 1. Newsvendor Problem
-A vendor must decide how many items to stock without knowing the exact demand. The goal is to minimize expected costs, balancing:
-
-- **Overstock costs:** Money lost on unsold items
-- **Understock costs:** Lost revenue from unmet demand
-
-Optimal stocking levels depend on the probability distribution of demand.
-
-### 2. Portfolio Optimization
-In finance, investors allocate funds across assets to maximize expected returns while controlling risk. The problem involves:
-
-- **Decision variables:** Asset allocation weights
-- **Objective:** Maximize expected returns minus a risk penalty
-- **Constraints:** Budget (weights sum to 1), non-negativity, diversification limits
-
-The solution balances the trade-off between return and risk across various market scenarios.
-
-## Assignment 1: Implementation and Analysis
-
-In Assignment 1, we implemented key stochastic programming concepts using Python. Our work included:
-
-- **Building a modeling framework** with CVXPY and NumPy
-- **Solving the Newsvendor Problem** with different demand distributions
-- **Optimizing investment portfolios** under uncertain returns
-- **Visualizing solutions** with Matplotlib
-- **Sensitivity analysis:** Studying how changes in uncertainty affect decisions
-
-### Key Insights
-- **Stochastic solutions outperform deterministic ones** when uncertainty is significant
-- **Scenario selection impacts solution quality:** More scenarios improve accuracy but increase computation time
-- **Risk aversion changes decisions:** Higher risk penalties lead to more conservative strategies
-
-## Mathematical Formulation
-
-A generic stochastic programming problem can be written as:
-
-```math
-\min \mathbb{E}[f(x, \xi)] \\
-\text{subject to:} \\
-    g(x) \leq 0 \\
-    h(x, \xi) \leq 0
-```
-
-Where:
-
-- \( x \) is the decision variable  
-- \( \xi \) represents random parameters (e.g., demand, returns)  
-- \( \mathbb{E}[\cdot] \) denotes the expectation over all scenarios  
-- \( f(x, \xi) \) is the cost function  
-- \( g(x) \) are deterministic constraints  
-- \( h(x, \xi) \) are random constraints dependent on uncertainty  
-
-
-## Solution Approaches
-
-- **Sample Average Approximation (SAA):** Use Monte Carlo sampling to approximate expectations
-- **Stochastic Gradient Descent:** Efficient for large-scale problems
-- **L-shaped Method (Benders Decomposition):** Splits the problem into easier subproblems
-- **Progressive Hedging:** Decomposes multi-stage problems into manageable parts
-
-## Software Tools
-We used Python libraries like CVXPY, NumPy, and Matplotlib to model, solve, and visualize stochastic optimization problems.
+Python tools like CVXPY, NumPy, and Matplotlib facilitate modeling and solving stochastic programming problems.
 
 ---
 
-# Week 2: Introduction to Random Walks
+## Week 2: Introduction to Random Walks
+A random walk is a sequence of steps where each step is determined randomly, used to model various phenomena.
 
-## Definition of a Random Walk
+### Types of Random Walks:
+- **1D Random Walk:** Moves left or right with equal probability.
+- **2D Random Walk:** Moves in random directions on a grid, spreading in a circular pattern over time.
 
-A random walk describes a sequence of steps, where each step's direction and magnitude are determined randomly. Random walks model phenomena in various fields, from particle diffusion to financial markets.
+### Applications:
+- **Physics:** Molecular diffusion, Brownian motion.
+- **Finance:** Stock price modeling (Geometric Brownian Motion).
+- **Biology:** Animal movement, genetic drift.
+- **Computer Science:** Graph algorithms, Monte Carlo simulations.
 
-## 1D Random Walk
+Random walks serve as a foundation for Markov chains and other stochastic processes.
 
-In one dimension, a particle starts at position 0 and moves left or right with equal probability:
+---
 
-```math
-X_t = X_{t-1} + S_t
-```
+## Week 3: Linear Programming
+Linear programming (LP) optimizes a linear objective function subject to linear constraints. Key components include:
 
-Where:
+- **Objective Function:** A linear function to be maximized or minimized.
+- **Constraints:** Linear restrictions on decision variables.
+- **Decision Variables:** Quantities that decision-makers optimize.
 
-- \( X_t \) is the position at time \( t \)
-- \( S_t \) is a random step (+1 or -1)
+### Example Applications:
+1. **Diet Optimization:** Minimizing food costs while meeting nutritional requirements.
+2. **Resource Allocation:** Distributing limited resources efficiently.
 
-After many steps, the position distribution becomes approximately normal, centered at the origin, with spread proportional to the square root of time.
+LP problems are commonly solved using methods like the Simplex Algorithm and Interior-Point Methods.
 
-## 2D Random Walk
+---
 
-In two dimensions, a particle starts at (0, 0) and moves to a neighboring grid point at each step:
+## Week 4: Introduction to Graph Theoretic Models
+Graph theoretic models use graphs to represent relationships between objects. A graph consists of **nodes (vertices)** and **edges (links between nodes)**.
 
-```math
-X_t = X_{t-1} + (dx_t, dy_t)
-```
+### Key Concepts:
+- **Types of Graphs:**
+  - **Directed vs. Undirected Graphs:** Edges have direction or not.
+  - **Weighted vs. Unweighted Graphs:** Edges have weights (e.g., distances in a road network).
+  - **Bipartite Graphs:** Nodes are divided into two sets, with edges only between sets.
+  
+- **Graph Representations:**
+  - **Adjacency Matrix:** A matrix representation of connections.
+  - **Adjacency List:** A list of neighboring nodes.
 
-Where \( (dx_t, dy_t) \) is a random step vector. Over time, the particle diffuses outward in a circular pattern.
+### Applications:
+1. **Social Networks:** Representing relationships between users.
+2. **Transportation Networks:** Modeling roads, flight routes, and logistics.
+3. **Internet & Web Search:** PageRank algorithm for ranking web pages.
+4. **Biological Networks:** Protein interactions and gene regulatory networks.
 
-## Applications of Random Walks
-
-- **Physics:** Molecular diffusion, Brownian motion
-- **Finance:** Stock price dynamics (e.g., Geometric Brownian Motion)
-- **Biology:** Animal foraging behavior, genetic drift
-- **Computer Science:** Graph algorithms, Monte Carlo methods
-
-Random walks lay the foundation for advanced stochastic processes like Markov chains, which model systems where the next state depends only on the current state.
-
-# Week 3: Linear Programming
-
-## Introduction
-Linear programming (LP) is a mathematical method for determining the best outcome in a given mathematical model whose requirements are represented by linear relationships. It is widely used in various fields such as economics, business, engineering, and military applications.
-
-## Key Concepts
-
-### Objective Function
-The objective function is the function that needs to be optimized (maximized or minimized). In LP, it is a linear function of the decision variables.
-
-### Constraints
-Constraints are the restrictions or limitations on the decision variables. They are also linear functions in LP.
-
-### Decision Variables
-These are the variables that decision-makers will decide the values of in order to achieve the best outcome.
-
-## Example Applications
-
-### 1. Diet Optimization
-A person needs at least 2000 calories and 50g protein daily. The goal is to minimize the cost of food while meeting these nutritional requirements.
-
-- **Food A**: 500 calories, 30g protein, $3/unit.
-- **Food B**: 700 calories, 20g protein, $5/unit.
+Graph algorithms, such as Dijkstra’s shortest path, PageRank, and minimum spanning trees, are used for optimizing real-world networks.
