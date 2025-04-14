@@ -74,3 +74,43 @@ Graph theoretic models use graphs to represent relationships between objects. A 
 4. **Biological Networks:** Protein interactions and gene regulatory networks.
 
 Graph algorithms, such as Dijkstra’s shortest path, PageRank, and minimum spanning trees, are used for optimizing real-world networks.
+
+## Week 5: Introduction to Stochastic Thinking
+
+### Stochastic vs Deterministic Models
+
+#### Overview
+- **Stochastic Models**: These models incorporate randomness and uncertainty. They are used to predict outcomes where multiple possibilities exist, each with a certain probability.  
+  Examples:  
+  - Weather prediction  
+  - Stock price modeling  
+  - Queueing systems (e.g., customer service lines)  
+
+- **Deterministic Models**: These models operate under fixed rules and produce the same output for a given input.  
+  Examples:  
+  - Simple interest calculation  
+  - Projectile motion under ideal conditions  
+
+#### Key Differences
+| **Aspect**            | **Stochastic Models**                  | **Deterministic Models**            |
+|------------------------|----------------------------------------|--------------------------------------|
+| **Nature**            | Random and probabilistic               | Fixed and predictable               |
+| **Outcome**           | Multiple possible outcomes             | Single predictable outcome          |
+| **Examples**          | Stock prices, weather, queueing systems| Physics equations, financial models |
+
+---
+
+### Real-Life Examples of Stochastic Models
+
+1. **Queueing Systems**  
+   - Used in customer service, call centers, and traffic management.  
+   - Example: Predicting wait times in a bank queue based on random customer arrivals.
+
+2. **Stock Price Modeling**  
+   - Stock prices are influenced by random market factors.  
+   - Example: Simulating price changes using a geometric Brownian motion model.
+
+3. **Warehouse Demand Simulation**  
+   - Predicting random fluctuations in product demand.  
+   - Example: Simulating daily demand for inventory management.
+
